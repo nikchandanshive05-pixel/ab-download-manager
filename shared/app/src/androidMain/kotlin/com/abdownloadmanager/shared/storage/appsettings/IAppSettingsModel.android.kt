@@ -54,6 +54,7 @@ data class AppSettingsModel(
     override val ignoreSSLCertificates: Boolean,
     override val useCategoryByDefault: Boolean,
     override val userAgent: String,
+    override val duplicateDownloadStrategy: com.abdownloadmanager.shared.storage.DuplicateStrategySetting,
     val browserIconInLauncher: Boolean,
 ) : IAppSettingsModel {
     companion object {
@@ -107,6 +108,7 @@ private val AndroidSettingsSchema = S.typeSafeObject(
             ignoreSSLCertificates = it[AppSettingsModel::ignoreSSLCertificates],
             useCategoryByDefault = it[AppSettingsModel::useCategoryByDefault],
             userAgent = it[AppSettingsModel::userAgent],
+            duplicateDownloadStrategy = it[AppSettingsModel::duplicateDownloadStrategy],
 
             browserIconInLauncher = it[AppSettingsModel::browserIconInLauncher],
         )

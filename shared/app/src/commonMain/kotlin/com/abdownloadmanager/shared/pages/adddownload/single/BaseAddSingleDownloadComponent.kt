@@ -151,7 +151,9 @@ abstract class BaseAddSingleDownloadComponent(
     val credentials = downloadChecker.credentials.asStateFlow()
     val name = downloadChecker.name.asStateFlow()
     val folder = downloadChecker.folder.asStateFlow()
-    val onDuplicateStrategy: MutableStateFlow<OnDuplicateStrategy?> = MutableStateFlow(null)
+    val onDuplicateStrategy: MutableStateFlow<OnDuplicateStrategy?> = MutableStateFlow(
+        appSettings.duplicateDownloadStrategy.value.toOnDuplicateStrategyOrNull()
+    )
 
     override val isFolderChangedResult: StateFlow<FolderChangeResult> = combine(
         folder,
@@ -210,7 +212,11 @@ abstract class BaseAddSingleDownloadComponent(
             name,
             folder,
         )
-            .onEachLatest { onDuplicateStrategy.update { null } }
+            .onEachLatest {
+                onDuplicateStrategy.update {
+                    appSettings.duplicateDownloadStrategy.value.toOnDuplicateStrategyOrNull()
+                }
+            }
             .launchIn(scope)
         combine(
             name,

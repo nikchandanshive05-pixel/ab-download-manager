@@ -85,6 +85,7 @@ class AppSettingsStorage(
     override val ignoreSSLCertificates = from(AppSettingsModel.ignoreSSLCertificates)
     override val useCategoryByDefault = from(AppSettingsModel.useCategoryByDefault)
     override val userAgent = from(AppSettingsModel.userAgent)
+    override val duplicateDownloadStrategy = from(AppSettingsModel.duplicateDownloadStrategy)
 
     val browserIconInLauncher = from(AppSettingsModel.browserIconInLauncher)
 }

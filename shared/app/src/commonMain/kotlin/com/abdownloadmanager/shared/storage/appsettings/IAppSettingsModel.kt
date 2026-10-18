@@ -1,5 +1,6 @@
 package com.abdownloadmanager.shared.storage.appsettings
 
+import com.abdownloadmanager.shared.storage.DuplicateStrategySetting
 import com.abdownloadmanager.shared.storage.SpeedLimitMode
 import com.abdownloadmanager.shared.storage.SupportedSizeUnits
 import ir.amirab.util.config.datastore.SettingsTypeSafeSchema
@@ -47,4 +48,5 @@ interface IAppSettingsModel {
     val ignoreSSLCertificates: Boolean
     val useCategoryByDefault: Boolean
     val userAgent: String
+    val duplicateDownloadStrategy: DuplicateStrategySetting
 }

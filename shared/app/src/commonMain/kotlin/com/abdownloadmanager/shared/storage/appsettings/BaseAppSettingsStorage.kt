@@ -50,4 +50,5 @@ interface BaseAppSettingsStorage :
     val ignoreSSLCertificates: MutableStateFlow<Boolean>
     val useCategoryByDefault: MutableStateFlow<Boolean>
     val userAgent: MutableStateFlow<String>
+    val duplicateDownloadStrategy: MutableStateFlow<com.abdownloadmanager.shared.storage.DuplicateStrategySetting>
 }

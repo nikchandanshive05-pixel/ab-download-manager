@@ -266,6 +266,25 @@ object CommonSettings {
         )
     }
 
+    fun duplicateDownloadStrategyConfig(appSettingsStorage: BaseAppSettingsStorage): EnumConfigurable<com.abdownloadmanager.shared.storage.DuplicateStrategySetting> {
+        return EnumConfigurable(
+            title = Res.string.settings_duplicate_download_strategy.asStringSource(),
+            description = Res.string.settings_duplicate_download_strategy_description.asStringSource(),
+            backedBy = appSettingsStorage.duplicateDownloadStrategy,
+            possibleValues = com.abdownloadmanager.shared.storage.DuplicateStrategySetting.entries,
+            itemTitle = {
+                when (it) {
+                    com.abdownloadmanager.shared.storage.DuplicateStrategySetting.AlwaysAsk ->
+                        Res.string.duplicate_strategy_always_ask.asStringSource()
+                    com.abdownloadmanager.shared.storage.DuplicateStrategySetting.AddNumbered ->
+                        Res.string.duplicate_strategy_add_numbered.asStringSource()
+                    com.abdownloadmanager.shared.storage.DuplicateStrategySetting.OverrideDownload ->
+                        Res.string.duplicate_strategy_overwrite.asStringSource()
+                }
+            }
+        )
+    }
+
     fun sizeUnit(
         appRepository: BaseAppRepository,
         scope: CoroutineScope

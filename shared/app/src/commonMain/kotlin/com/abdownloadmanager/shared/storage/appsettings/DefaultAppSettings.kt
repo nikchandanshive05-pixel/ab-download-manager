@@ -1,5 +1,6 @@
 package com.abdownloadmanager.shared.storage.appsettings
 
+import com.abdownloadmanager.shared.storage.DuplicateStrategySetting
 import com.abdownloadmanager.shared.storage.SpeedLimitMode
 import com.abdownloadmanager.shared.storage.SupportedSizeUnits
 import com.abdownloadmanager.shared.util.ApiKeyUtil
@@ -49,4 +50,5 @@ abstract class DefaultAppSettings {
     open val ignoreSSLCertificates: Boolean get() = false
     open val useCategoryByDefault: Boolean get() = true
     open val userAgent: String get() = ""
+    open val duplicateDownloadStrategy: DuplicateStrategySetting get() = DuplicateStrategySetting.AlwaysAsk
 }
