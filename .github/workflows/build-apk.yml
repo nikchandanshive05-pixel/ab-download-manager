@@ -45,3 +45,21 @@ jobs:
         with:
           name: ab-download-manager-debug-apk
           path: android/app/build/outputs/apk/debug/*.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v1.0.0-custom"
+          name: "AB Download Manager - Custom APK"
+          body: |
+            ### Custom Build of AB Download Manager
+            - Automatically handles duplicate downloads with configurable preference:
+              - **Always ask**
+              - **Always add numbered file**
+              - **Always overwrite existing file**
+            - Skips blocking popups and enables instant downloading.
+          draft: false
+          prerelease: false
+          files: android/app/build/outputs/apk/debug/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
