@@ -20,7 +20,9 @@ jobs:
           distribution: "jetbrains"
           java-package: "jdk"
           java-version: "25"
-          check-latest: true
+          check-latest: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v4
