@@ -83,7 +83,7 @@ object BaseAppSettingsDefinition {
         prop(IAppSettingsModel::useCategoryByDefault) bind S.boolean()
             .catch(PlatformDefaultSettings::useCategoryByDefault)
         prop(IAppSettingsModel::userAgent) bind S.string().catch(PlatformDefaultSettings::userAgent)
-        prop(IAppSettingsModel::duplicateDownloadStrategy) bind io.github.amir1376.schemakt.schema.primitive.enum<com.abdownloadmanager.shared.storage.DuplicateStrategySetting>()
+        prop(IAppSettingsModel::duplicateDownloadStrategy) bind S.enum<com.abdownloadmanager.shared.storage.DuplicateStrategySetting>()
             .catch(PlatformDefaultSettings::duplicateDownloadStrategy)
     }
 }
